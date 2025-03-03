@@ -1,4 +1,4 @@
-El chat debe funcionar en red local
+Chat en consola usando solo nodejs. El chat debe funcionar en red local
 
 Hola
 
