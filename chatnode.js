@@ -15,7 +15,7 @@ const socket = dgram.createSocket('udp4');
 
 console.log(`Iniciando chat en el puerto ${PORT}...`);
 
-// Permitir broadcast
+// el broadcast ese 
 socket.bind(PORT, () => {
     socket.setBroadcast(true);
     console.log(`Chat en red local iniciado. Usuario: ${username}`);
@@ -55,8 +55,9 @@ const sendMessage = (message) => {
     const timestamp = new Date().toLocaleTimeString();
     const formattedMessage = `(${username}) [${timestamp}]: ${message}`;
     console.log(`Enviando mensaje: ${formattedMessage}`);
-    socket.send(formattedMessage, 0, formattedMessage.length, PORT, BROADCAST_ADDR, (err) => {
-        if (err) {
+    const bufferMessage = Buffer.from(formattedMessage, 'utf-8');
+    socket.send(bufferMessage, 0, bufferMessage.length, PORT, BROADCAST_ADDR, (err) => {
+            if (err) {
             console.error("Error al enviar el mensaje:", err);
         }
     });
