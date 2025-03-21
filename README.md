@@ -1,4 +1,4 @@
-Chat en consola usando solo nodejs. El chat debe funcionar en red local
+Trabajos y talleres de electiva profesional do
 
 Hola
 
